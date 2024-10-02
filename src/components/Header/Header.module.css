@@ -16,6 +16,7 @@
 
 .activeLink {
   color: rgb(183, 44, 12);
+  font-weight: 600;
 }
 
 .wrapperLinks {
