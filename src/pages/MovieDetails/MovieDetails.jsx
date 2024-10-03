@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react"
 import { fetchMovieById } from "../../services/api"
-import { useParams } from "react-router-dom"
+import {
+  NavLink,
+  Outlet,
+  useParams,
+} from "react-router-dom"
 import Loader from "../../services/loader"
 
 const MovieDetails = () => {
@@ -20,6 +24,7 @@ const MovieDetails = () => {
   const userScore = (
     movie.vote_average * 10
   ).toFixed(0)
+
   return (
     <div>
       <div>
@@ -52,6 +57,11 @@ const MovieDetails = () => {
         </p>
       </div>
       <p>Additional information</p>
+      <div>
+        <NavLink to="cast">Cast</NavLink>
+        <NavLink to="reviews">Reviews</NavLink>
+      </div>
+      <Outlet />
     </div>
   )
 }

@@ -39,3 +39,32 @@ export const fetchMovieById = async (movieId) => {
     return null
   }
 }
+
+export const fetchCastByMovieId = async (
+  movieId
+) => {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/movie/${movieId}/credits`,
+      options
+    )
+    return response.data
+  } catch (error) {
+    console.error(error)
+    return null
+  }
+}
+
+export const fetchReviewsByMovieId = async (
+  movieId
+) => {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/movie/${movieId}/reviews`,
+      options
+    )
+    return response.data
+  } catch (error) {
+    console.error(error)
+  }
+}
