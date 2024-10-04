@@ -1,8 +1,14 @@
-import { useEffect, useState } from "react"
+import {
+  useEffect,
+  useRef,
+  useState,
+} from "react"
 import { fetchMovieById } from "../../services/api"
 import {
+  Link,
   NavLink,
   Outlet,
+  useLocation,
   useParams,
 } from "react-router-dom"
 import Loader from "../../services/loader"
@@ -10,6 +16,8 @@ import Loader from "../../services/loader"
 const MovieDetails = () => {
   const { movieId } = useParams()
   const [movie, setMovie] = useState(null)
+  const location = useLocation()
+  const goBackRef = useRef(location.state)
 
   useEffect(() => {
     const getData = async () => {
@@ -27,6 +35,7 @@ const MovieDetails = () => {
 
   return (
     <div>
+      <Link to={goBackRef.current}>Go back</Link>
       <div>
         <img
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

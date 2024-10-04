@@ -68,3 +68,15 @@ export const fetchReviewsByMovieId = async (
     console.error(error)
   }
 }
+
+export const fetchTrendingMovies = async () => {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/trending/movie/day`,
+      options
+    )
+    return response.data
+  } catch (error) {
+    console.error(error)
+  }
+}

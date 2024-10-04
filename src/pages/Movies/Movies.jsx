@@ -1,4 +1,4 @@
-import { useSearchParams } from "react-router-dom"
+import {  useSearchParams } from "react-router-dom"
 import MovieList from "../../components/MovieList/MovieList"
 import { useEffect, useState } from "react"
 import { fetchMovieList } from "../../services/api"
