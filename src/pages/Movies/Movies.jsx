@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { fetchMovieList } from "../../services/api"
 import SearchBar from "../../components/SearchBar/SearchBar"
 import Loader from "../../services/loader"
-import LoadMoreBtn from "../../components/LoadMoreBtn/LoadMoreBtn"
+
 
 const Movies = () => {
   const [movies, setMovies] = useState([])
@@ -13,27 +13,29 @@ const Movies = () => {
   const query = searchParams.get("query") ?? ""
   const [isLoading, setIsLoading] =
     useState(false)
-  const [page, setPage] = useState(1)
+  const [isError, setIsError] = useState(false)
 
   useEffect(() => {
-    const getMoviesByQuery = async (
-      query,
-      page
-    ) => {
-      if (query) {
+    if (!query) {
+      return
+    }
+    const getMoviesByQuery = async () => {
+      try {
+        setIsError(false)
         setIsLoading(true)
         const data = await fetchMovieList(
-          query,
-          page
+          query
         )
-        setMovies((prev) => [...prev, ...data])
+        setMovies(data)
+      } catch (error) {
+        setIsError(true)
+        console.error(error);
+      } finally {
         setIsLoading(false)
-      } else {
-        setMovies([])
       }
     }
-    getMoviesByQuery(query, page)
-  }, [query, page])
+    getMoviesByQuery()
+  }, [query])
 
   const handleChangeQuery = (newQuery) => {
     if (!newQuery) {
@@ -42,7 +44,6 @@ const Movies = () => {
     searchParams.set("query", newQuery)
     setSearchParams(searchParams)
     setMovies([])
-    setPage(1)
   }
 
   return (
@@ -54,12 +55,6 @@ const Movies = () => {
         <Loader />
       ) : (
         <MovieList movies={movies} />
-      )}
-      {movies.length > 0 && (
-        <LoadMoreBtn
-          setPage={setPage}
-          isLoading={isLoading}
-        />
       )}
     </div>
   )

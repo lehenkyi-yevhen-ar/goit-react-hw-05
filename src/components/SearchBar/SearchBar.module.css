@@ -1,0 +1,35 @@
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.field {
+  width: 200px;
+  margin-right: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid black;
+  outline: none;
+  &:active {
+    background-color: rgba(230, 196, 189, 0.596);
+  }
+  &:focus {
+    background-color: rgba(230, 196, 189, 0.596);
+  }
+}
+
+.btn {
+  background-color: rgba(230, 196, 189, 0.596);
+  outline: none;
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+  &:hover {
+    background-color: rgb(163, 75, 55);
+    color: aliceblue;
+    cursor: pointer;
+  }
+}

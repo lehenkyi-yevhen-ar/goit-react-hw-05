@@ -5,6 +5,7 @@ import {
   useLocation,
 } from "react-router-dom"
 import Loader from "../../services/loader"
+import s from "./Trending.module.css"
 
 const Trending = () => {
   const [trending, setTrending] = useState([])
@@ -24,10 +25,13 @@ const Trending = () => {
   if (isLoading) return <Loader />
 
   return (
-    <div>
-      <ul>
+    <div className={s.container}>
+      <ul className={s.list}>
         {trending.map((movie) => (
-          <li key={movie.id}>
+          <li
+            key={movie.id}
+            className={s.element}
+          >
             <Link
               to={`movies/${movie.id}`}
               state={location}
@@ -35,8 +39,11 @@ const Trending = () => {
               <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt=""
+                className={s.img}
               />
-              <p>{movie.title}</p>
+              <p className={s.title}>
+                {movie.title}
+              </p>
             </Link>
           </li>
         ))}
