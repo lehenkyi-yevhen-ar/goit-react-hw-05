@@ -12,20 +12,22 @@ const options = {
 
 const BASE_URL = "https://api.themoviedb.org/3"
 
-export const fetchMovieList = async (query) => {
+export const fetchMovieList = async (query, page = 1) => {
   try {
-    const response = await axios.get(
-      `${BASE_URL}/search/movie?page=1&query=${encodeURIComponent(
-        query
-      )}`,
-      options
-    )
-    return response.data.results
+    const response = await axios.get(`${BASE_URL}/search/movie`, {
+      ...options,
+      params: {
+        ...options.params, 
+        page,
+        query: encodeURIComponent(query),
+      },
+    });
+    return response.data.results;
   } catch (error) {
-    console.error(error)
-    return []
+    console.error(error);
+    return [];
   }
-}
+};
 
 export const fetchMovieById = async (movieId) => {
   try {
