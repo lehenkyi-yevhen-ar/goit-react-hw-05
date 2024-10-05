@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import { lazy, Suspense } from "react"
+import Loader from "./services/loader"
 
 const Home = lazy(() =>
   import("./pages/Home/Home")
@@ -21,9 +22,6 @@ const Cast = lazy(() =>
 )
 const Reviews = lazy(() =>
   import("./components/Reviews/Reviews")
-)
-const Loader = lazy(() =>
-  import("./services/loader")
 )
 
 const App = () => {
