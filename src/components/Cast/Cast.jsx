@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { fetchCastByMovieId } from "../../services/api"
-import Loader from "../../services/loader"
+import Loader from "../../services/Loader"
 import s from "./Cast.module.css"
 
 const Cast = () => {
