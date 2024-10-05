@@ -1,0 +1,54 @@
+.container {
+padding-top: 15px;
+padding-left: 15px;
+padding-right: 15px;
+}
+
+.mainContainer {
+    display: flex;
+    border-bottom: 1px gray solid;
+}
+
+.detailsContainer {
+display: flex;
+flex-direction: column;
+}
+
+.goBack {
+    color: rgb(159, 36, 8);
+    font-weight: 500;
+    &:hover {
+        text-shadow: 0 0 10px rgba(94, 94, 94, 0.9);
+    }
+}
+
+.mainImg {
+    width: 300px;
+    margin-top: 15px;
+    margin-right: 20px;
+    margin-bottom: 15px;
+}
+
+
+.details {
+    margin-bottom: 5px;
+}
+
+.additional {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.navLinks {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px gray solid;
+    margin-bottom: 10px;
+}
+
+.moreBtn {
+margin-bottom: 10px;
+}
+
+

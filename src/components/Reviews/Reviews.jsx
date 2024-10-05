@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { fetchReviewsByMovieId } from "../../services/api"
 import Loader from "../../services/loader"
+import s from "./Reviews.module.css"
 
 const Reviews = () => {
   const { movieId } = useParams()
@@ -29,10 +30,13 @@ const Reviews = () => {
     )
   else
     return (
-      <div>
-        <ul>
+      <div className={s.container}>
+        <ul className={s.list}>
           {reviews.map((review) => (
-            <li key={review.id}>
+            <li
+              key={review.id}
+              className={s.element}
+            >
               <h3>{review.author}</h3>
               <p>{review.content}</p>
             </li>
