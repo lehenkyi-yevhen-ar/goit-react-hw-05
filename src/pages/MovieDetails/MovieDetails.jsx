@@ -11,7 +11,7 @@ import {
   useLocation,
   useParams,
 } from "react-router-dom"
-import Loader from "../../services/loader"
+import Loader from "../../services/Loader"
 import s from "./MovieDetails.module.css"
 const MovieDetails = () => {
   const { movieId } = useParams()

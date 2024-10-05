@@ -3,7 +3,7 @@ import MovieList from "../../components/MovieList/MovieList"
 import { useEffect, useState } from "react"
 import { fetchMovieList } from "../../services/api"
 import SearchBar from "../../components/SearchBar/SearchBar"
-import Loader from "../../services/loader"
+import Loader from "../../services/Loader"
 
 
 const Movies = () => {

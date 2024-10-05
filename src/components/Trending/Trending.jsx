@@ -4,7 +4,7 @@ import {
   Link,
   useLocation,
 } from "react-router-dom"
-import Loader from "../../services/loader"
+import Loader from "../../services/Loader"
 import s from "./Trending.module.css"
 
 const Trending = () => {
