@@ -3,25 +3,25 @@ import { lazy, Suspense } from "react"
 import Loader from "./services/Loader"
 
 const Home = lazy(() =>
-  import("./pages/Home/Home")
+  import("./pages/Home/HomePage")
 )
 const Header = lazy(() =>
-  import("./components/Header/Header")
+  import("./components/Header/Navigation")
 )
 const NotFound = lazy(() =>
   import("./pages/NotFound/NotFound")
 )
 const Movies = lazy(() =>
-  import("./pages/Movies/Movies")
+  import("./pages/Movies/MoviesPage")
 )
 const MovieDetails = lazy(() =>
-  import("./pages/MovieDetails/MovieDetails")
+  import("./pages/MovieDetails/MovieDetailsPage")
 )
 const Cast = lazy(() =>
-  import("./components/Cast/Cast")
+  import("./components/Cast/MovieCast")
 )
 const Reviews = lazy(() =>
-  import("./components/Reviews/Reviews")
+  import("./components/Reviews/MovieReviews")
 )
 
 const App = () => {
